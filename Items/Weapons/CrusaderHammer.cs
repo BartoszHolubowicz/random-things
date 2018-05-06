@@ -52,7 +52,7 @@ namespace RandomThings.Items.Weapons
             // Each frame...
             projectile.ai[0] += 1f;
             projectile.rotation = MathHelper.Pi / 10f * (startingDirection == 1 ? projectile.ai[0] : -projectile.ai[0]);
-            projectile.position += translation.RotatedBy(startingDirection == 1 ? startingRotation + MathHelper.Pi / 50f * projectile.ai[0] : startingRotation - MathHelper.Pi / 50f * projectile.ai[0]);
+            projectile.velocity = translation.RotatedBy(startingDirection == 1 ? startingRotation + MathHelper.Pi / 50f * projectile.ai[0] : startingRotation - MathHelper.Pi / 50f * projectile.ai[0]);
             translation.X += 0.1f;
             Dust.NewDust(projectile.position + new Vector2(15f, 15f), 5, 5, DustID.GoldCoin, -translation.RotatedBy(MathHelper.Pi / 50f * projectile.ai[0]).X * 0.1f, -translation.RotatedBy(MathHelper.Pi / 50f * projectile.ai[0]).Y * 0.1f);
 
